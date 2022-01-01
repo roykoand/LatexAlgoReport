@@ -5,14 +5,10 @@ create_env:
 
 .PHONY: clean 
 clean:
-	rm -f info.txt
-	rm -f errors.csv
-	rm -f report.pdf
-	rm -f report.tex
+	rm -f info.txt report.tex errors.csv report.pdf
 
 .PHONY: run
 run: clean
-	touch info.csv
 	g++ -o exec algo.cpp
 	./exec 
 	. $(VENV)/bin/activate
