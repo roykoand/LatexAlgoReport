@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{array}
+
+\title{\VAR{algo_name}}
+\author{\VAR{name}}
+
+\begin{document}
+\maketitle
+
+\section{Errors results}
+$x \in [\VAR{a}, \VAR{b}]$
+\begin{center}
+\begin{tabular}{ | m{4cm} | c | c | c |} 
+  \hline
+  Error name & Argument & Error & Bits  \\ 
+  \hline
+  Min Relative Error & \VAR{x_min_rel} & \VAR{min_rel} & \VAR{min_rel | log2}  \\ 
+  \hline
+  Max Relative Error & \VAR{x_max_rel} & \VAR{max_rel} & \VAR{max_rel | log2}  \\ 
+  \hline
+\end{tabular}
+\end{center}
+
+\section{Time}
+
+Algorithm takes \VAR{algo_time} seconds.
+\section{Graphs}
+
+\begin{center}
+\includegraphics[scale=0.9]{\VAR{filename}}
+\end{center}
+
+\end{document}
