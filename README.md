@@ -100,5 +100,5 @@ Also, you can generate a report with other parameters. For example, a report wit
 ![report 1 error](demo/report1error.png)
 
 ## TODO
-- [] Test a report generator on different parameters. I assume that sometimes it can crush.
-- [] Invent another pipeline instead of a cpp-file-python cringe. 
+- [ ] Test a report generator on different parameters. I assume that sometimes it can crush.
+- [ ] Invent another pipeline instead of a cpp-file-python cringe. 
