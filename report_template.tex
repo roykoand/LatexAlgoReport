@@ -5,6 +5,10 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\pagenumbering{gobble}
 
 \title{\VAR{algo_name}}
 \author{\VAR{name}}
@@ -12,27 +16,63 @@
 \begin{document}
 \maketitle
 
-\section{Errors results}
-$x \in [\VAR{a}, \VAR{b}]$
+\section{Error results}
 \begin{center}
+$x \in [\VAR{a}, \VAR{b}]$ with h = \BLOCK{if step == -1} nextafterf \BLOCK{else} \VAR{step} \BLOCK{endif}
+
 \begin{tabular}{ | m{4cm} | c | c | c |} 
   \hline
   Error name & Argument & Error & Bits  \\ 
   \hline
+  \BLOCK{if rel_graph is defined}
   Min Relative Error & \VAR{x_min_rel} & \VAR{min_rel} & \VAR{min_rel | log2}  \\ 
   \hline
   Max Relative Error & \VAR{x_max_rel} & \VAR{max_rel} & \VAR{max_rel | log2}  \\ 
   \hline
+  \BLOCK{endif}
+  
+  \BLOCK{if abs_graph is defined}
+  Min Absolute Error & \VAR{x_min_abs} & \VAR{min_abs} & \VAR{min_abs | log2}  \\ 
+  \hline
+  Max Absolute Error & \VAR{x_max_abs} & \VAR{max_abs} & \VAR{max_abs | log2}  \\ 
+  \hline
+  \BLOCK{endif}
 \end{tabular}
 \end{center}
 
 \section{Time}
-
+\BLOCK{if rel_graph is defined or abs_graph is defined}
 Algorithm takes \VAR{algo_time} seconds.
+\BLOCK{endif}
+
 \section{Graphs}
 
+\BLOCK{if rel_graph is defined and abs_graph is defined}
+
+\begin{figure}[h!]
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=6cm, height=4.5cm]{relative_error.png}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[width=6cm, height=4.5cm]{absolute_error.png}
+\end{subfigure}
+\end{figure}
+
+\BLOCK{elif rel_graph is defined}
+
 \begin{center}
-\includegraphics[scale=0.9]{\VAR{filename}}
+\includegraphics[scale=0.9]{\VAR{rel_graph}}
 \end{center}
+
+\BLOCK{elif abs_graph is defined}
+
+\begin{center}
+
+\includegraphics[scale=0.9]{\VAR{abs_graph}}
+\end{center}
+
+\BLOCK{endif}
 
 \end{document}

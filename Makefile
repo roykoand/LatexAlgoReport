@@ -9,7 +9,7 @@ clean:
 
 .PHONY: run
 run: clean
-	g++ -o exec algo.cpp
-	./exec 
+	g++ -o example example.cpp
+	./example 
 	. $(VENV)/bin/activate
 	python3 csv2latex.py
