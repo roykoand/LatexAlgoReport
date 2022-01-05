@@ -40,7 +40,7 @@ struct config
 accelerating_func - user-defined float function
 true_func - actual float function
 ```
-After defining the ```testing``` function with your arguments, you need to execute your ```.cpp``` code. It creates ```info.txt``` and ```errors.csv``` files. Then you need to execute ```csv2latex.py```. If you did everything successfully, a ```report.pdf``` file will be created.
+After defining the ```testing``` function with your arguments, you need to execute your ```.cpp``` code. It creates ```info.txt``` and ```errors.csv``` files. Then you need to execute ```csv2latex.py```. If you did everything successfully, a ```report_<your-algorithm-name>.pdf``` file will be created.
 
 ## Example 
 You can test the reports generator on the famous Fast Square Inverse Root algorithm (https://github.com/id-Software/Quake-III-Arena/blob/dbe4ddb10315479fc00086f08e25d968b4b43c49/code/game/q_math.c#L546-L581).
@@ -91,7 +91,7 @@ Then you can generate a report of the algorithm:
 make run VENV=venv
 ```
 
-If you made all good, my little researcher, in your repository directory would appear ```report.pdf``` (you can see examples in ```demo/``` directory) and it looks like this:
+If you made all good, my little researcher, in your repository directory would appear ```report_Fast_Inverse_Square_root.pdf``` (you can see examples in ```demo/``` directory) and it looks like this:
 
 ![report 2 errors](demo/report2errors.png)
 

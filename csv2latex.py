@@ -63,9 +63,8 @@ ERRORS_CSV_PATH = "errors.csv"
 INFO_PATH = "info.txt"
 GRAPH_REL_NAME = "relative_error.png"
 GRAPH_ABS_NAME = "absolute_error.png"
-LATEX_TEMPLATE_PATH = "report.tex"
 info = info_parser(INFO_PATH)
-
+LATEX_TEMPLATE_PATH = f"report_{info['AlgoName'].replace(' ', '_')}.tex"
 
 def template_variables(info: Dict[float, str]) -> Dict[float, str]:
     result_variables = {
@@ -106,7 +105,7 @@ def template_variables(info: Dict[float, str]) -> Dict[float, str]:
 with open(LATEX_TEMPLATE_PATH, "w+", encoding="utf-8") as latex_report:
     latex_report.write(template.render(template_variables(info)))
 
-pdflatex = subprocess.call("pdflatex " + "report.tex > /dev/null", shell=True)
+pdflatex = subprocess.call(f"pdflatex {LATEX_TEMPLATE_PATH}", shell=True)
 if pdflatex != 0:
     print("Oops! Dear friend, we have problems with pdflatex or your .tex template.")
 else:
